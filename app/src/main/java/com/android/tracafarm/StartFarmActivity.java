@@ -273,7 +273,7 @@ public class StartFarmActivity extends AppCompatActivity {
         cardViewWheat.setVisibility(View.GONE);
 
         Log.d("farm detail =", crops.get(0).cropName);
-        for(int i = 0; i < 3; i++){
+        for(int i = 0; i < 2; i++){
             if(crops.get(i).cropName.equalsIgnoreCase("Wheat")) {
                 cardViewWheat.setVisibility(View.VISIBLE);
                 final Wheat wheat = new Wheat();
