@@ -28,7 +28,8 @@
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
 
                     <TextView
                         android:id="@+id/textView_wheat"
@@ -38,6 +39,11 @@
                         android:paddingTop="5dp"
                         android:textColor="@android:color/black"
                         android:textSize="15sp" />
+                    <Button
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/button_wheat"
+                        android:text="Sowed"/>
 
                     <com.android.tracafarm.StepsView
                         android:id="@+id/stepsView_wheat"
@@ -60,7 +66,8 @@
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
 
                     <TextView
                         android:id="@+id/textView_sugarcane"
@@ -70,6 +77,12 @@
                         android:paddingTop="5dp"
                         android:textColor="@android:color/black"
                         android:textSize="15sp" />
+
+                    <Button
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/button_sugarcane"
+                        android:text="Sowed"/>
 
                     <com.android.tracafarm.StepsView
                         android:id="@+id/stepsView_sugarcane"
@@ -92,7 +105,8 @@
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
 
                     <TextView
                         android:id="@+id/textView_maize"
@@ -102,6 +116,11 @@
                         android:paddingTop="5dp"
                         android:textColor="@android:color/black"
                         android:textSize="15sp" />
+                    <Button
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/button_maize"
+                        android:text="Sowed"/>
 
                     <com.android.tracafarm.StepsView
                         android:id="@+id/stepsView_maize"

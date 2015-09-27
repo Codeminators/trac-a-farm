@@ -5,8 +5,10 @@ package com.android.tracafarm;
  */
 public class Wheat {
 	private static String SOIL_TYPE = "clay loam or loam texture ";
-	private int sowingNormalDayStart = 1;
-	private int sowingNormalDayEnd = 15;
+	private int sowingNormalDayStart = 305;
+	private int sowingNormalDayEnd = 315;
+	public int dayStart = 1;
+	public int dayEnd = 15;
 	private int sowingNormalMonth = 11;
 	private int sowingLateDayStart = 1;
 	private int sowingLateDayEnd = 15;

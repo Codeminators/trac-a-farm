@@ -5,8 +5,9 @@ package com.android.tracafarm;
  */
 public class Maize {
 	private static String SOIL_TYPE = "loamy or clay loamy texture";
-	private int sowingNormalDayStart = 23;
-	private int sowingNormalDayEnd = 15;
+	private int sowingNormalDayStart = 174;
+	private int sowingNormalDayEnd = 196;
+
 	private int sowingNormalMonthStart = 6;
 	private int sowingNormalMonthEnd = 7;
 	
