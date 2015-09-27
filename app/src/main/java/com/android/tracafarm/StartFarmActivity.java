@@ -23,10 +23,12 @@ public class StartFarmActivity extends AppCompatActivity {
     int month;
     int day;
     TextView multiTextView;
+    TextView multiTextViewMaize;
     CardView cardViewWheat;
     CardView cardViewSugarcane;
     CardView cardViewMaize;
     int[] date = new int[1];
+    int[] dateMaize = new int[1];
     @Override
     protected void onResume() {
         super.onResume();
@@ -35,8 +37,25 @@ public class StartFarmActivity extends AppCompatActivity {
         month = c.get(Calendar.MONTH) + 1;
         day = c.get(Calendar.DAY_OF_YEAR);
         final Wheat wheat = new Wheat();
+        final Maize maize = new Maize();
         Log.d("DAY = ", day + "");
-        if(day >= wheat.getSowingNormalDayStart() && day <= wheat.getSowingNormalDayEnd()) {
+        if(day < wheat.getSowingNormalDayStart()) {
+            int daysLeft = wheat.getSowingNormalDayStart() - day;
+            multiTextView.setText(daysLeft + " Days Left to Start Sowing. \nPrepare the field.");
+        }
+        else if(day >= wheat.getSowingNormalDayStart() && day <= wheat.getSowingNormalDayEnd()) {
+            int daysLeft = wheat.getSowingNormalDayEnd() - day;
+            multiTextView.setText("Sowing Period: " + wheat.dayStart + "/" + wheat.getSowingNormalMonth() + "/15 - "
+                    + wheat.dayEnd + "/" + wheat.getSowingNormalMonth() + "/15 - ");
+            int midDay = wheat.getSowingNormalDayStart() + ((wheat.getSowingNormalDayEnd() - wheat.getSowingNormalDayStart()) / 2);
+            if (day >= midDay)
+                cardViewWheat.setCardBackgroundColor(Color.parseColor("#FF0000"));
+            else if (day <= midDay)
+                cardViewWheat.setCardBackgroundColor(Color.parseColor("#FFFF00"));
+            else
+                cardViewWheat.setCardBackgroundColor(Color.parseColor("#00FF00"));
+        }
+        else if(day >= wheat.getSowingNormalDayStart() && day <= wheat.getSowingNormalDayEnd()) {
             int daysLeft = wheat.getSowingNormalDayEnd() - day;
             multiTextView.setText("Sowing Period: " + wheat.dayStart + "/" + wheat.getSowingNormalMonth() + "/15 - "
                     + wheat.dayEnd + "/" + wheat.getSowingNormalMonth() + "/15 - ");
@@ -69,6 +88,7 @@ public class StartFarmActivity extends AppCompatActivity {
                 }
             });
         }
+
         else if(day >= date[0] && day <= date[0] + wheat.getFirstIrrigation()) {
             boolean rains = false;
             if(rains) {
@@ -115,6 +135,92 @@ public class StartFarmActivity extends AppCompatActivity {
             multiTextView.setText("Hooray You Can Harvest your Wheat!");
         }
 
+
+        //MAIZE
+
+        final Button sowed = (Button) findViewById(R.id.button_maize);
+        sowed.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                date[0] = c.get(Calendar.DAY_OF_YEAR);
+                multiTextViewMaize.setText("Add Fertilizers");
+                sowed.setText("Added");
+                sowed.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        boolean rains = false;
+                        if(rains) {
+                            multiTextViewMaize.setText("It will rain in " + maize.getFirstIrrigation() + "days you may not irrigate your field");
+                        }
+                        int daysLeft = date[0] + maize.getFirstIrrigation() - day;
+                        multiTextViewMaize.setText(daysLeft + "Days left for the first Irrigation");
+                    }
+                });
+            }
+        });
+        if(day < maize.getSowingNormalDayStart()) {
+            int daysLeft = maize.getSowingNormalDayStart() - day;
+            multiTextViewMaize.setText(daysLeft + "Days Left to Start Sowing. \nPrepare the field.");
+        }
+        else if(day >= maize.getSowingNormalDayStart() && day <= maize.getSowingNormalDayEnd()) {
+            int daysLeft = maize.getSowingNormalDayEnd() - day;
+            multiTextViewMaize.setText("Sowing Period: " + maize.dayStart + "/" + maize.getSowingNormalMonthStart() + "/15 - "
+                    + maize.dayEnd + "/" + maize.getSowingNormalMonthEnd() + "/15 - ");
+            int midDay = maize.getSowingNormalDayStart() + ((maize.getSowingNormalDayEnd() - maize.getSowingNormalDayStart()) / 2);
+            if (day >= midDay)
+                cardViewMaize.setCardBackgroundColor(Color.parseColor("#FF0000"));
+            else if (day <= midDay)
+                cardViewMaize.setCardBackgroundColor(Color.parseColor("#FFFF00"));
+            else
+                cardViewMaize.setCardBackgroundColor(Color.parseColor("#00FF00"));
+
+        }
+        else if(day >= date[0] && day <= date[0] + maize.getFirstIrrigation()) {
+            boolean rains = false;
+            if(rains) {
+                multiTextViewMaize.setText("It will rain in " + maize.getFirstIrrigation() + "days you may not irrigate your field");
+            }
+            int daysLeft = date[0] + maize.getFirstIrrigation() - day;
+            multiTextViewMaize.setText(daysLeft + "Days left for the first Irrigation");
+        }
+        else if(day == date[0] + maize.getPesticides()) {
+            multiTextViewMaize.setText("Add Pesticides");
+        }
+
+        else if(day >= date[0] + maize.getFirstIrrigation() && day <= date[0] + maize.getSecondIrrigation()) {
+            boolean rains = false;
+            if(rains) {
+                int x = maize.getSecondIrrigation() - maize.getFirstIrrigation();
+                multiTextViewMaize.setText("It will rain in " + x + "days you may not irrigate your field");
+            }
+            int daysLeft = maize.getSecondIrrigation() - maize.getFirstIrrigation();
+            multiTextViewMaize.setText(daysLeft + "Days left for the second Irrigation");
+        }
+
+        else if(day >= date[0] + maize.getSecondIrrigation() && day <= date[0] + maize.getThirdIrrigation()) {
+            boolean rains = false;
+            if(rains) {
+                int x = maize.getThirdIrrigation() - maize.getSecondIrrigation();
+                multiTextViewMaize.setText("It will rain in " + x + "days you may not irrigate your field");
+            }
+            int daysLeft = maize.getThirdIrrigation() - maize.getSecondIrrigation();
+            multiTextViewMaize.setText(daysLeft + "Days left for the Third Irrigation");
+        }
+
+        else if(day >= date[0] + maize.getThirdIrrigation() && day <= date[0] + maize.getFourthIrrigation()) {
+            boolean rains = false;
+            if(rains) {
+                int x = maize.getFourthIrrigation() - maize.getThirdIrrigation();
+                multiTextViewMaize.setText("It will rain in " + x + "days you may not irrigate your field");
+            }
+            int daysLeft = maize.getFourthIrrigation() - maize.getThirdIrrigation();
+            multiTextViewMaize.setText(daysLeft + "Days left for the Fourth Irrigation");
+        }
+
+        else if(day >= date[0] + maize.getHarvest()) {
+            multiTextViewMaize.setText("Hooray You Can Harvest your maize!");
+        }
+
     }
 
 
@@ -143,30 +249,18 @@ public class StartFarmActivity extends AppCompatActivity {
                 final Wheat wheat = new Wheat();
                 multiTextView = (TextView) cardViewWheat.findViewById(R.id.textView_wheat);
                 StepsView stepsView = (StepsView) cardViewWheat.findViewById(R.id.stepsView_wheat);
-                if(day < wheat.getSowingNormalDayStart()) {
-                    int daysLeft = wheat.getSowingNormalDayStart() - day;
-                    multiTextView.setText(daysLeft + "Days Left to Start Sowing. \nPrepare the field.");
-                }
-                else if(day >= wheat.getSowingNormalDayStart() && day <= wheat.getSowingNormalDayEnd()) {
-                    int daysLeft = wheat.getSowingNormalDayEnd() - day;
-                    multiTextView.setText("Sowing Period: " + wheat.dayStart + "/" + wheat.getSowingNormalMonth() + "/15 - "
-                            + wheat.dayEnd + "/" + wheat.getSowingNormalMonth() + "/15 - ");
-                    int midDay = wheat.getSowingNormalDayStart() + ((wheat.getSowingNormalDayEnd() - wheat.getSowingNormalDayStart()) / 2);
-                    if (day >= midDay)
-                        cardViewWheat.setCardBackgroundColor(Color.parseColor("#FF0000"));
-                    else if (day <= midDay)
-                        cardViewWheat.setCardBackgroundColor(Color.parseColor("#FFFF00"));
-                    else
-                        cardViewWheat.setCardBackgroundColor(Color.parseColor("#00FF00"));
-                }
+
             }
             if(crops.get(i).cropName.equalsIgnoreCase("Maize")) {
                 cardViewMaize.setVisibility(View.VISIBLE);
+                final Maize maize = new Maize();
+                multiTextViewMaize = (TextView) cardViewMaize.findViewById(R.id.textView_maize);
+                StepsView stepsView = (StepsView) cardViewMaize.findViewById(R.id.stepsView_maize);
 
             }
-            if(crops.get(i).cropName.equalsIgnoreCase("Wheat")) {
-                cardViewWheat.setVisibility(View.VISIBLE);
-            }
+//            if(crops.get(i).cropName.equalsIgnoreCase("Wheat")) {
+//                cardViewWheat.setVisibility(View.VISIBLE);
+//            }
         }
 
     }

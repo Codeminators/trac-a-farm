@@ -43,7 +43,8 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:id="@+id/button_wheat"
-                        android:text="Sowed"/>
+                        android:text="Sowed"
+                        android:layout_gravity="center"/>
 
                     <com.android.tracafarm.StepsView
                         android:id="@+id/stepsView_wheat"
@@ -82,7 +83,8 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:id="@+id/button_sugarcane"
-                        android:text="Sowed"/>
+                        android:text="Sowed"
+                        android:layout_gravity="center"/>
 
                     <com.android.tracafarm.StepsView
                         android:id="@+id/stepsView_sugarcane"
@@ -120,7 +122,8 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:id="@+id/button_maize"
-                        android:text="Sowed"/>
+                        android:text="Sowed"
+                        android:layout_gravity="center"/>
 
                     <com.android.tracafarm.StepsView
                         android:id="@+id/stepsView_maize"

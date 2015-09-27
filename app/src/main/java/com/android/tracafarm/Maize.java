@@ -7,7 +7,8 @@ public class Maize {
 	private static String SOIL_TYPE = "loamy or clay loamy texture";
 	private int sowingNormalDayStart = 174;
 	private int sowingNormalDayEnd = 196;
-
+	public int dayStart = 23;
+	public int dayEnd = 15;
 	private int sowingNormalMonthStart = 6;
 	private int sowingNormalMonthEnd = 7;
 	
