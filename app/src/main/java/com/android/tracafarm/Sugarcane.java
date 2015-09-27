@@ -5,8 +5,8 @@ package com.android.tracafarm;
  */
 public class Sugarcane {
     private static String SOIL_TYPE = "loamy or clay loamy texture";
-    private int sowingNormalDayStart = 1;
-    private int sowingNormalDayEnd = 15;
+    private int sowingNormalDayStart = 244;
+    private int sowingNormalDayEnd = 258;
     private int sowingNormalMonthStart = 9;
     private int sowingNormalMonthEnd = 10;
 

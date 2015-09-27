@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -89,7 +90,10 @@ public class FarmDetailActivity extends AppCompatActivity {
         submitButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(FarmDetailActivity.this, StartFarmActivity.class));
+                Intent intent = new Intent(FarmDetailActivity.this, StartFarmActivity.class);
+                intent.putExtra("Crops", crops);
+                Log.d("farm detail =", crops.get(0).cropName);
+                startActivity(intent);
             }
         });
 
