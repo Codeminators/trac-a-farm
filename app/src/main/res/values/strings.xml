@@ -20,4 +20,5 @@
     <string name="animal">Animal Labour cost =</string>
     <string name="cost">Total Cost =</string>
     <string name="title_activity_pollution">PollutionActivity</string>
+    <string name="title_activity_farm_detail">FarmDetailActivity</string>
 </resources>

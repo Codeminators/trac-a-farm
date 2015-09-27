@@ -26,6 +26,10 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.android.tracafarm.MainActivity" />
         </activity>
+        <activity
+            android:name=".FarmDetailActivity"
+            android:label="@string/title_activity_farm_detail" >
+        </activity>
     </application>
 
 </manifest>
