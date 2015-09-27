@@ -1,7 +1,9 @@
 package com.android.tracafarm;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ArrayAdapter;
@@ -170,6 +172,11 @@ public class MainActivity extends AppCompatActivity {
         farmLocation.setAdapter(dataAdapter);
         progressBar = (ProgressBar) findViewById(R.id.progressBar);
 
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+
+        setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(false);
+
     }
 
     @Override
@@ -188,6 +195,7 @@ public class MainActivity extends AppCompatActivity {
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
+            startActivity(new Intent(this, PollutionActivity.class));
             return true;
         }
 

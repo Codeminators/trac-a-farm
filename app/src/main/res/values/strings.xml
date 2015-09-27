@@ -19,4 +19,5 @@
     <string name="human">Human Labour cost =</string>
     <string name="animal">Animal Labour cost =</string>
     <string name="cost">Total Cost =</string>
+    <string name="title_activity_pollution">PollutionActivity</string>
 </resources>
