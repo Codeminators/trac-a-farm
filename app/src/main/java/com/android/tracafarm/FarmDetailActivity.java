@@ -59,6 +59,7 @@ public class FarmDetailActivity extends AppCompatActivity {
             button.setBackgroundColor(Color.parseColor("#00000000"));
             button.setPadding(80, 40, 0, 10);
             button.setTextSize(25);
+            button.setButtonDrawable(R.drawable.bbuton_primary_rounded);
             button.setText(cropList.get(i));
             button.setTextColor(Color.parseColor("#bdbdbd"));
             final int j = i;
@@ -84,6 +85,13 @@ public class FarmDetailActivity extends AppCompatActivity {
             });
             radioGroup.addView(button);
         }
+
+        submitButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(FarmDetailActivity.this, StartFarmActivity.class));
+            }
+        });
 
         relativeLayout.addView(radioGroup);
         ArrayList<String> cropsGrown = MainActivity.getSeason();

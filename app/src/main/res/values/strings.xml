@@ -21,4 +21,5 @@
     <string name="cost">Total Cost =</string>
     <string name="title_activity_pollution">PollutionActivity</string>
     <string name="title_activity_farm_detail">FarmDetailActivity</string>
+    <string name="title_activity_start_farm">StartFarmActivity</string>
 </resources>

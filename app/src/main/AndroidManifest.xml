@@ -30,6 +30,10 @@
             android:name=".FarmDetailActivity"
             android:label="@string/title_activity_farm_detail" >
         </activity>
+        <activity
+            android:name=".StartFarmActivity"
+            android:label="@string/title_activity_start_farm" >
+        </activity>
     </application>
 
 </manifest>
