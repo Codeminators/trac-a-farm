@@ -4,13 +4,13 @@ package com.android.tracafarm;
  * Created by raghav on 27/09/15.
  */
 public class Sugarcane {
-    private static SOIL_TYPE = "loamy or clay loamy texture";
+    private static String SOIL_TYPE = "loamy or clay loamy texture";
     private int sowingNormalDayStart = 1;
     private int sowingNormalDayEnd = 15;
     private int sowingNormalMonthStart = 9;
     private int sowingNormalMonthEnd = 10;
 
-    private String seedDepth = "10cm"
+    private String seedDepth = "10cm";
 
     private int firstIrrigation = 7;
     private int secondIrrigation = 20;
