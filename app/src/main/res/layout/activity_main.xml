@@ -22,7 +22,8 @@
         android:layout_width="wrap_content"
         android:id="@+id/progressBar"
         android:visibility="gone"
-        android:layout_below="@+id/farm_location" />
+        android:layout_centerInParent="true"
+         />
     <EditText
         android:id="@+id/farm_area"
         android:layout_width="match_parent"

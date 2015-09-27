@@ -50,7 +50,7 @@
                         android:id="@+id/stepsView_wheat"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        app:numOfSteps="5" />
+                        app:numOfSteps="8" />
 
                 </LinearLayout>
 
@@ -90,7 +90,7 @@
                         android:id="@+id/stepsView_sugarcane"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        app:numOfSteps="5" />
+                        app:numOfSteps="8" />
 
                 </LinearLayout>
 
@@ -129,7 +129,7 @@
                         android:id="@+id/stepsView_maize"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        app:numOfSteps="5" />
+                        app:numOfSteps="8" />
 
                 </LinearLayout>
 

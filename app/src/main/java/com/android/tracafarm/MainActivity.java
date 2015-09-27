@@ -267,11 +267,12 @@ public class MainActivity extends AppCompatActivity {
                         try {
 
                             JSONArray jsonArray = new JSONArray(stringResponse);
+                            String[] value = {"Wheat", "Maize", "Sugarcane"};
                             ArrayList<Crop> crop = new ArrayList<Crop>();
                             int i = 0;
                             while (i < jsonArray.length() && i < 3) {
                                 crop.add(i, new Crop());
-                                crop.get(i).cropName = jsonArray.getJSONObject(i).getString("Crop");
+                                crop.get(i).cropName = value[i];//jsonArray.getJSONObject(i).getString("Crop");
                                 crop.get(i).seedCost = jsonArray.getJSONObject(i).getInt("SeedCost");
                                 crop.get(i).fertilizerCost = jsonArray.getJSONObject(i).getInt("Fertilizer");
                                 crop.get(i).irrigationCost = jsonArray.getJSONObject(i).getInt("Irrigation");
