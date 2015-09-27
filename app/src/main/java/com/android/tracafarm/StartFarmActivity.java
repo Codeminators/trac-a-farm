@@ -34,8 +34,9 @@ public class StartFarmActivity extends AppCompatActivity {
         year = c.get(Calendar.YEAR);
         month = c.get(Calendar.MONTH) + 1;
         day = c.get(Calendar.DAY_OF_YEAR);
-        Wheat wheat = new Wheat();
-        if(day > wheat.getSowingNormalDayStart() && day < wheat.getSowingNormalDayEnd()) {
+        final Wheat wheat = new Wheat();
+        Log.d("DAY = ", day + "");
+        if(day >= wheat.getSowingNormalDayStart() && day <= wheat.getSowingNormalDayEnd()) {
             int daysLeft = wheat.getSowingNormalDayEnd() - day;
             multiTextView.setText("Sowing Period: " + wheat.dayStart + "/" + wheat.getSowingNormalMonth() + "/15 - "
                     + wheat.dayEnd + "/" + wheat.getSowingNormalMonth() + "/15 - ");
@@ -53,6 +54,17 @@ public class StartFarmActivity extends AppCompatActivity {
                     date[0] = c.get(Calendar.DAY_OF_YEAR);
                     multiTextView.setText("Add Fertilizers");
                     sowed.setText("Add");
+                    sowed.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            boolean rains = false;
+                            if (rains) {
+                                multiTextView.setText("It will rain in " + wheat.getFirstIrrigation() + "days you may not irrigate your field");
+                            }
+                            int daysLeft = date[0] + wheat.getFirstIrrigation() - day;
+                            multiTextView.setText(daysLeft + "Days left for the first Irrigation");
+                        }
+                    });
 
                 }
             });
@@ -128,33 +140,44 @@ public class StartFarmActivity extends AppCompatActivity {
         for(int i = 0; i < 3; i++){
             if(crops.get(i).cropName.equalsIgnoreCase("Wheat")) {
                 cardViewWheat.setVisibility(View.VISIBLE);
-                Wheat wheat = new Wheat();
+                final Wheat wheat = new Wheat();
                 multiTextView = (TextView) cardViewWheat.findViewById(R.id.textView_wheat);
                 StepsView stepsView = (StepsView) cardViewWheat.findViewById(R.id.stepsView_wheat);
                 if(day < wheat.getSowingNormalDayStart()) {
                     int daysLeft = wheat.getSowingNormalDayStart() - day;
                     multiTextView.setText(daysLeft + "Days Left to Start Sowing. \nPrepare the field.");
                 }
-                else if(day > wheat.getSowingNormalDayStart() && day < wheat.getSowingNormalDayEnd()) {
+                else if(day >= wheat.getSowingNormalDayStart() && day <= wheat.getSowingNormalDayEnd()) {
                     int daysLeft = wheat.getSowingNormalDayEnd() - day;
                     multiTextView.setText("Sowing Period: " + wheat.dayStart + "/" + wheat.getSowingNormalMonth() + "/15 - "
                     + wheat.dayEnd + "/" + wheat.getSowingNormalMonth() + "/15 - ");
-                    int midDay = wheat.getSowingNormalDayStart() + ((wheat.getSowingLateDayEnd() - wheat.getSowingNormalDayStart())/2);
-                    if(day > midDay)
+                    int midDay = wheat.getSowingNormalDayStart() + ((wheat.getSowingNormalDayEnd() - wheat.getSowingNormalDayStart())/2);
+                    if(day >= midDay)
                         cardViewWheat.setCardBackgroundColor(Color.parseColor("#FF0000"));
-                    else if (day < midDay)
+                    else if (day <= midDay)
                         cardViewWheat.setCardBackgroundColor(Color.parseColor("#FFFF00"));
                     else
                         cardViewWheat.setCardBackgroundColor(Color.parseColor("#00FF00"));
-                    final Button sowed = (Button) findViewById(R.id.button_wheat);
-                    sowed.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View view) {
-                            date[0] = c.get(Calendar.DAY_OF_YEAR);
-                            multiTextView.setText("Add Fertilizers");
-                            sowed.setText("Added");
-                        }
-                    });
+//                    final Button sowed = (Button) findViewById(R.id.button_wheat);
+//                    sowed.setOnClickListener(new View.OnClickListener() {
+//                        @Override
+//                        public void onClick(View view) {
+//                            date[0] = c.get(Calendar.DAY_OF_YEAR);
+//                            multiTextView.setText("Add Fertilizers");
+//                            sowed.setText("Added");
+//                            sowed.setOnClickListener(new View.OnClickListener() {
+//                                @Override
+//                                public void onClick(View view) {
+//                                    boolean rains = false;
+//                                    if(rains) {
+//                                        multiTextView.setText("It will rain in " + wheat.getFirstIrrigation() + "days you may not irrigate your field");
+//                                    }
+//                                    int daysLeft = date[0] + wheat.getFirstIrrigation() - day;
+//                                    multiTextView.setText(daysLeft + "Days left for the first Irrigation");
+//                                }
+//                            });
+//                        }
+//                    });
                 }
                  else if(day >= date[0] && day <= date[0] + wheat.getFirstIrrigation()) {
                     boolean rains = false;
