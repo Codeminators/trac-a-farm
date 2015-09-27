@@ -150,84 +150,19 @@ public class StartFarmActivity extends AppCompatActivity {
                 else if(day >= wheat.getSowingNormalDayStart() && day <= wheat.getSowingNormalDayEnd()) {
                     int daysLeft = wheat.getSowingNormalDayEnd() - day;
                     multiTextView.setText("Sowing Period: " + wheat.dayStart + "/" + wheat.getSowingNormalMonth() + "/15 - "
-                    + wheat.dayEnd + "/" + wheat.getSowingNormalMonth() + "/15 - ");
-                    int midDay = wheat.getSowingNormalDayStart() + ((wheat.getSowingNormalDayEnd() - wheat.getSowingNormalDayStart())/2);
-                    if(day >= midDay)
+                            + wheat.dayEnd + "/" + wheat.getSowingNormalMonth() + "/15 - ");
+                    int midDay = wheat.getSowingNormalDayStart() + ((wheat.getSowingNormalDayEnd() - wheat.getSowingNormalDayStart()) / 2);
+                    if (day >= midDay)
                         cardViewWheat.setCardBackgroundColor(Color.parseColor("#FF0000"));
                     else if (day <= midDay)
                         cardViewWheat.setCardBackgroundColor(Color.parseColor("#FFFF00"));
                     else
                         cardViewWheat.setCardBackgroundColor(Color.parseColor("#00FF00"));
-//                    final Button sowed = (Button) findViewById(R.id.button_wheat);
-//                    sowed.setOnClickListener(new View.OnClickListener() {
-//                        @Override
-//                        public void onClick(View view) {
-//                            date[0] = c.get(Calendar.DAY_OF_YEAR);
-//                            multiTextView.setText("Add Fertilizers");
-//                            sowed.setText("Added");
-//                            sowed.setOnClickListener(new View.OnClickListener() {
-//                                @Override
-//                                public void onClick(View view) {
-//                                    boolean rains = false;
-//                                    if(rains) {
-//                                        multiTextView.setText("It will rain in " + wheat.getFirstIrrigation() + "days you may not irrigate your field");
-//                                    }
-//                                    int daysLeft = date[0] + wheat.getFirstIrrigation() - day;
-//                                    multiTextView.setText(daysLeft + "Days left for the first Irrigation");
-//                                }
-//                            });
-//                        }
-//                    });
                 }
-                 else if(day >= date[0] && day <= date[0] + wheat.getFirstIrrigation()) {
-                    boolean rains = false;
-                    if(rains) {
-                        multiTextView.setText("It will rain in " + wheat.getFirstIrrigation() + "days you may not irrigate your field");
-                    }
-                    int daysLeft = date[0] + wheat.getFirstIrrigation() - day;
-                    multiTextView.setText(daysLeft + "Days left for the first Irrigation");
-                }
-                else if(day == date[0] + wheat.getPesticides()) {
-                    multiTextView.setText("Add Pesticides");
-                }
-
-                else if(day >= date[0] + wheat.getFirstIrrigation() && day <= date[0] + wheat.getSecondIrrigation()) {
-                    boolean rains = false;
-                    if(rains) {
-                        int x = wheat.getSecondIrrigation() - wheat.getFirstIrrigation();
-                        multiTextView.setText("It will rain in " + x + "days you may not irrigate your field");
-                    }
-                    int daysLeft = wheat.getSecondIrrigation() - wheat.getFirstIrrigation();
-                    multiTextView.setText(daysLeft + "Days left for the second Irrigation");
-                }
-
-                else if(day >= date[0] + wheat.getSecondIrrigation() && day <= date[0] + wheat.getThirdIrrigation()) {
-                    boolean rains = false;
-                    if(rains) {
-                        int x = wheat.getThirdIrrigation() - wheat.getSecondIrrigation();
-                        multiTextView.setText("It will rain in " + x + "days you may not irrigate your field");
-                    }
-                    int daysLeft = wheat.getThirdIrrigation() - wheat.getSecondIrrigation();
-                    multiTextView.setText(daysLeft + "Days left for the Third Irrigation");
-                }
-
-                else if(day >= date[0] + wheat.getThirdIrrigation() && day <= date[0] + wheat.getFourthIrrigation()) {
-                    boolean rains = false;
-                    if(rains) {
-                        int x = wheat.getFourthIrrigation() - wheat.getThirdIrrigation();
-                        multiTextView.setText("It will rain in " + x + "days you may not irrigate your field");
-                    }
-                    int daysLeft = wheat.getFourthIrrigation() - wheat.getThirdIrrigation();
-                    multiTextView.setText(daysLeft + "Days left for the Fourth Irrigation");
-                }
-
-                else if(day >= date[0] + wheat.getHarvest()) {
-                    multiTextView.setText("Hooray You Can Harvest your Wheat!");
-                }
-
             }
             if(crops.get(i).cropName.equalsIgnoreCase("Maize")) {
                 cardViewMaize.setVisibility(View.VISIBLE);
+
             }
             if(crops.get(i).cropName.equalsIgnoreCase("Wheat")) {
                 cardViewWheat.setVisibility(View.VISIBLE);
