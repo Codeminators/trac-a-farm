@@ -3,4 +3,20 @@
 
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
+    <string name="area">Area (in hectares)</string>
+    <string name="district">District</string>
+    <string name="build">Build a farm</string>
+    <string name="budget">Budget(\u20B9)</string>
+    <string name="seed">Seeds cost =</string>
+    <string name="irrigation">Irrigation cost =</string>
+    <string name="insecticides">Insecticides cost =</string>
+    <string name="fertiliser">Fertiliser cost =</string>
+    <string name="interest">Interest =</string>
+    <string name="rent">Rent =</string>
+    <string name="depreciation">Depreciation =</string>
+    <string name="submit">Submit</string>
+    <string name="profit">Profit = </string>
+    <string name="human">Human Labour cost =</string>
+    <string name="animal">Animal Labour cost =</string>
+    <string name="cost">Total Cost =</string>
 </resources>
