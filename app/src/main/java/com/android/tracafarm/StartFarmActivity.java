@@ -150,7 +150,7 @@ public class StartFarmActivity extends AppCompatActivity {
 
         else if(day >= date[0] + wheat.getHarvest()) {
 //            stepViewWheat.setLabels(value).setCompletedPosition(7).drawView();
-            multiTextView.setText("Hooray You Can Harvest your Wheat!");
+            multiTextView.setText(getString(R.string.harvest));
         }
 
 
@@ -202,11 +202,11 @@ public class StartFarmActivity extends AppCompatActivity {
         else if(day >= date[0] && day <= date[0] + maize.getFirstIrrigation()) {
 //            stepViewMaize.setLabels(value).setCompletedPosition(3).drawView();
             boolean rains = false;
-            if(rains) {
+//            if(rains) {
                 multiTextViewMaize.setText("It will rain in " + maize.getFirstIrrigation() + "days you may not irrigate your field");
-            }
-            int daysLeft = date[0] + maize.getFirstIrrigation() - day;
-            multiTextViewMaize.setText(daysLeft + "Days left for the first Irrigation");
+//            }
+//            int daysLeft = date[0] + maize.getFirstIrrigation() - day;
+//            multiTextViewMaize.setText(daysLeft + "Days left for the first Irrigation");
         }
         else if(day == date[0] + maize.getPesticides()) {
 //            stepViewMaize.setLabels(value).setCompletedPosition(3).drawView();
@@ -216,12 +216,12 @@ public class StartFarmActivity extends AppCompatActivity {
         else if(day >= date[0] + maize.getFirstIrrigation() && day <= date[0] + maize.getSecondIrrigation()) {
 //            stepViewMaize.setLabels(value).setCompletedPosition(4).drawView();
             boolean rains = false;
-            if(rains) {
+//            if(rains) {
                 int x = maize.getSecondIrrigation() - maize.getFirstIrrigation();
-                multiTextViewMaize.setText("It will rain in " + x + "days you may not irrigate your field");
-            }
-            int daysLeft = maize.getSecondIrrigation() - maize.getFirstIrrigation();
-            multiTextViewMaize.setText(daysLeft + "Days left for the second Irrigation");
+                multiTextViewMaize.setText("It will rain in " + x + "days do not irrigate the field");
+//            }
+//            int daysLeft = maize.getSecondIrrigation() - maize.getFirstIrrigation();
+//            multiTextViewMaize.setText(daysLeft + " Days left for the second Irrigation");
         }
 
         else if(day >= date[0] + maize.getSecondIrrigation() && day <= date[0] + maize.getThirdIrrigation()) {
@@ -248,7 +248,7 @@ public class StartFarmActivity extends AppCompatActivity {
 
         else if(day >= date[0] + maize.getHarvest()) {
 //            stepViewMaize.setLabels(value).setCompletedPosition(7).drawView();
-            multiTextViewMaize.setText("Hooray You Can Harvest your maize!");
+            multiTextViewMaize.setText(getString(R.string.harvestmaize));
         }
 
     }
@@ -273,7 +273,7 @@ public class StartFarmActivity extends AppCompatActivity {
         cardViewWheat.setVisibility(View.GONE);
 
         Log.d("farm detail =", crops.get(0).cropName);
-        for(int i = 0; i < 2; i++){
+        for(int i = 0; i < crops.size(); i++){
             if(crops.get(i).cropName.equalsIgnoreCase("Wheat")) {
                 cardViewWheat.setVisibility(View.VISIBLE);
                 final Wheat wheat = new Wheat();

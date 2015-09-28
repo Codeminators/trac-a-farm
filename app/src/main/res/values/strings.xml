@@ -6,6 +6,8 @@
     <string name="area">Area (in hectares)</string>
     <string name="district">District</string>
     <string name="build">Build a farm</string>
+    <string name="harvest">You Can Harvest your Wheat!</string>
+    <string name="harvestmaize">You Can Harvest your Maize!</string>
     <string name="budget">Budget(\u20B9)</string>
     <string name="seed">Seeds cost =</string>
     <string name="irrigation">Irrigation cost =</string>

@@ -17,5 +17,7 @@
     <string name="rent">किराया =</string>
     <string name="depreciation">मूल्यह्रास=</string>
     <string name="human">मानव श्रम=</string>
+    <string name="harvest">आप अपने गेहूं फसल कर सकते हैं!</string>
+    <string name="harvestmaize">आप अपने मक्का फसल कर सकते हैं!</string>
     <string name="animal">पशु श्रम=</string>
 </resources>
