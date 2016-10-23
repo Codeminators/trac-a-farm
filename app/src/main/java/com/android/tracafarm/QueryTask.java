@@ -21,7 +21,7 @@ public class QueryTask extends AsyncTask<String, Void, String> {
         URL url;
         String response = "";
         try {
-            url = new URL("http://ananayarora.com/byldafarm/end.php");
+            url = new URL("https://ananayarora.com/byldafarm/end.php");
             HttpURLConnection conn = (HttpURLConnection) url.openConnection();
             conn.setReadTimeout(15000);
             conn.setConnectTimeout(15000);
